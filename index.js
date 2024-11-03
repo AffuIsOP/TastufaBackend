@@ -1,11 +1,3 @@
-const {dbConn} = require("./Configuration/database") // Database Connection
-const {
-    getRoles,
-    postRoles,
-    deleteRoles,
-    updateRoles
-} = require("./Controller/RoleController") //Role Controller
-
 const express = require("express");
 const app = express();
 
@@ -14,16 +6,34 @@ require("dotenv").config();
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
+const {dbConn} = require("./Configuration/database") // Database Connection
 
-// METHOD -- CREATE, READ
+const {
+    getRoles,
+    postRoles,
+    deleteRoles,
+    updateRoles
+} = require("./Controller/RoleController"); //Role Controller
+
+const {
+    getUsers,
+    postUsers,
+} = require("./Controller/UserController"); //User Controller
+
+// METHOD -- POST/CREATE, GET/READ
 // API    -- http://localhost:3000/roles
 
-app.route("/roles").get(getRoles).post(postRoles)
+app.route("/roles").get(getRoles).post(postRoles);
 
 // METHOD -- DELETE, UPDATE/PUT
 // API    -- http://localhost:3000/roles/rolename
 
-app.route("/roles/:rolename").delete(deleteRoles).put(updateRoles)
+app.route("/roles/:rolename").delete(deleteRoles).put(updateRoles);
+
+// METHOD -- POST/CREATE, GET/READ
+// API    -- http://localhost:3000/users
+
+app.route("/users").get(getUsers).post(postUsers)
 
 
 app.listen(process.env.PORT, function(){

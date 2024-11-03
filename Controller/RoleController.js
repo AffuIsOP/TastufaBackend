@@ -72,7 +72,6 @@ async function updateRoles(req, res) {
         .status(400)
         .send({ error: "role name must contain only alphabets" });
     }
-    // const safeRoleName = rolename ? rolename.toLowerCase() : 'defaultRoleName2';
 
     const UpdatedRole = await RolesCollection.updateOne(
       {
