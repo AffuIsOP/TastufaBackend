@@ -31,9 +31,9 @@ app.route("/roles").get(getRoles).post(postRoles);
 app.route("/roles/:rolename").delete(deleteRoles).put(updateRoles);
 
 // METHOD -- POST/CREATE, GET/READ
-// API    -- http://localhost:3000/users
+// API    -- http://localhost:3000/userreg
 
-app.route("/users").get(getUsers).post(postUsers)
+app.route("/userreg").get(getUsers).post(postUsers)
 
 
 app.listen(process.env.PORT, function(){

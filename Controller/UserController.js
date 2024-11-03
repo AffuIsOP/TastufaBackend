@@ -5,7 +5,7 @@ const { UsersCollection } = require("../Model/Users");
 
 async function getUsers(req, res) {
   const allUsers = await UsersCollection.find();
-  res.status(200).send(allUsers);
+  res.status(200).send("Get all User Data");
 }
 
 // METHOD -- POST
